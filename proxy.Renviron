@@ -1,0 +1,17 @@
+# Multiple SSL Backends
+#
+# In order to make SSL (https) connections, libcurl uses an SSL backend. 
+# Currently the Windows version of the curl package supports two SSL backends: 
+# OpenSSL and Windows Secure Channel. Only one can be enabled, 
+# which is determined when the curl package is first loaded in your R session.
+#
+# The default backend on Windows 7 and up is Secure Channel. 
+# This uses the native Windows SSL API and certificates, which is the safest choice for most users.
+#
+# To switch to OpenSSL, you need to set an environment variable  CURL_SSL_BACKEND to "openssl" 
+# when starting R. A good place to set this is in your .Renviron file in your user home (Documents) directory; 
+# the ?Startup manual has more details.
+CURL_SSL_BACKEND=openssl
+
+http_proxy=http://127.0.0.1:63517
+https_proxy=http://127.0.0.1:63517
