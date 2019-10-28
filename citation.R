@@ -5,10 +5,11 @@ library(ggstance)
 library(ggimage)
 library(ggtree)
 
+readRenviron("proxy.Renviron")
 
-id <- 'DO5oG40AAAAJ'
+id <- '9hAQ1LYAAAAJ'
 
-profile <- tryCatch(get_profile(id), error = function(e) return(NULL))
+profile <- tryCatch(get_profile(id), error = function(e) stop(paste("Could not get Google scholar profile for id: ",id,e,sep="\t")))
 if (!is.null(profile)) {
     profile$date <- Sys.Date()
     cat(toJSON(profile), file ="profile.json")
