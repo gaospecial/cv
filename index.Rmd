@@ -1,7 +1,9 @@
 ---
-title: "Guangchuang Yu's CV"
-author: Guangchuang Yu
+title: "Chun-Hui Gao's CV"
+author: Chun-Hui Gao
 date: "`r Sys.Date()`"
+bibliography: [publications.bib]
+biblio-style: apalike
 output:
   pagedown::html_resume:
     css: ['styles.css']
@@ -171,12 +173,12 @@ Aside
 ================================================================================
 
 
-![logo](ygc.jpg){width=100%}
+![logo](logo.jpg){width=100%}
 
 ```{r}
 # When in export mode the little dots are unaligned, so fix that. 
 if(PDF_EXPORT){
-  cat("View this CV online with links at _guangchuangyu.github.io/cv_")
+  cat("View this CV online with links at _bio-spring.info/cv_")
 }
 ```
 
@@ -184,12 +186,12 @@ Contact {#contact}
 --------------------------------------------------------------------------------
 
 
-- <i class="fa fa-envelope"></i> guangchuangyu@gmail.com
-- <i class="fa fa-twitter"></i> guangchuangyu
-- <i class="fa fa-github"></i> github.com/GuangchuangYu
-- <i class="fa fa-link"></i> guangchuangyu.github.io
-- <i class="fa fa-weixin"></i> biobabble
-- <i class="fa fa-phone"></i> (86) 13826432521
+- <i class="fa fa-envelope"></i> gaospecial@gmail.com
+- <i class="fa fa-github"></i> github.com/gaospecial
+- <i class="fa fa-weixin"></i> gaospecial
+- <i class="fa fa-twitter"></i> gaospecial
+- <i class="fa fa-link"></i> bio-spring.info
+- <i class="fa fa-phone"></i> (86) 13147133164
 
 
 
@@ -230,7 +232,7 @@ Last updated on `r Sys.Date()`.
 Main
 ================================================================================
 
-Guangchuang Yu {#title}
+Chun-Hui Gao {#title}
 --------------------------------------------------------------------------------
 
 
