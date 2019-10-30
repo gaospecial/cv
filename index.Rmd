@@ -187,39 +187,71 @@ Contact {#contact}
 
 
 - <i class="fa fa-envelope"></i> gaospecial@gmail.com
-- <i class="fa fa-github"></i> github.com/gaospecial
+- <i class="fa fa-github"></i> [github.com/gaospecial](http://github.com/gaospecial)
 - <i class="fa fa-weixin"></i> gaospecial
-- <i class="fa fa-twitter"></i> gaospecial
-- <i class="fa fa-link"></i> bio-spring.info
+- <i class="fa fa-twitter"></i> [gaospecial](http://twitter.com/gaospecial)
+- <i class="fa fa-link"></i> [bio-spring.info](http://bio-spring.info)
 - <i class="fa fa-phone"></i> (86) 13147133164
 
 
 
-Selected R packages {#skills}
+Professional Competence {#skills}
 --------------------------------------------------------------------------------
+
+Microbiology
+
+- Transcriptional regulator
+- Drug resistance
+- Pathogenisis
+- Persistance
+
+Microbial ecology
+
+- Social interaction
+- Co-culture
+- Multispecies biofilm
+
+Pathogens
+
+- *Mycobacterium tuberculosis*
+- *Vibrio parahaemolyticus*
+- *Staphylococcus aureus*
+
+Commensal
+
+- *Mycobacterium smegmatis*
+- *Staphylococcus epidermidis*
+- *Psuedomonas fluorescens*
+- *Pseudomonas putida*
+- *Bacillus subtilis*
+- *Streptomyces albus*
 
 NGS
 
-- ChIPseeker
+- (meta-)Genomics
+- (meta-)RNA-seq
+- Microbiome
+- ChIP-seq
 
-Ontology
+Bioinformatics
 
-- clusterProfiler 
-- DOSE
-- enrichplot
-- GOSemSim
-
-Phylogeny
-
-- tidytree
-- treeio
-- ggtree
+- Linux
+- Perl
+- R
 
 Visualization
 
-- ggimage
-- ggplotify
-- seqcombo
+- ggplot2
+- ggVennDiagram
+- Reproducible research
+
+Skills
+
+- Write R package
+- Statistics
+- Illustration
+- Bibliometric
+- Data mining
 
 Disclaimer {#disclaimer}
 --------------------------------------------------------------------------------
