@@ -257,19 +257,11 @@ Main
 Chun-Hui Gao (高春辉) {#title}
 --------------------------------------------------------------------------------
 
+Ph. D, Microbiology, bioinformatician, data scientist and R user. 
 
-```{r, results='asis'}
-intro_text <- glue("Professor of Bioinformatics at [Southern Medical University](http://www.smu.edu.cn/). I have developed more than 20 R packages, including ",
-  {Biocpkg("clusterProfiler")}, ", ", 
-  {Biocpkg("ChIPseeker")}, ", ",
-  {Biocpkg("treeio")}, " and ",
-  {Biocpkg("ggtree")}, 
-  ", to help biologists to explore and understand their data.")
-
-cat(sanitize_links(intro_text))
-```
-
-I am broadly interested in bioinformatics, metagenomics, molecular evolution, data integration and visualization.
+I am broadly interested in the data mining, particularly integration and visualization, 
+of biological, industrial and social datasets, which comes from high-throughput screening, 
+Next-Generation Sequqncing (NGS), public databases and so on.
 
 
 
