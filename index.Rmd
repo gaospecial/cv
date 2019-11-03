@@ -288,7 +288,19 @@ print_section(position_data, 'education')
 Research Summary {#summary data-icon=laptop}
 --------------------------------------------------------------------------------
 
-[@yangInbRTetRFamily2015; @zhangNovelMarRABOperon2014; @gaoArsRlikeTranscriptionalFactor2011; @gaoCharacterizationNovelArsRLike2012; @yangCharacterizationInteractionSirR2014; @wangIdentificationGeneticVariations2015; @yangCharacterizationInteractionCrossRegulation2010; @guoDissectingTranscriptionRegulatory2009; @yangTetRlikeRegulatorBroadly2012; @ouyangMetalfreeInactivationColi2017; @sunZiRanHuanJingZhongDeDuoWuChongShengWuMoYanJiuFangFaJiSheQunXiangHuZuoYong2017; @liuSurvivalEscherichiaColi2017; @maBacillusSubtilisBiofilm2017; @caoIdentificationFunctionalStudy2016; @ouyangEffectsHumicAcid2017; @ouyangMetabolismSurvivalGene2018; @wangDaChangGanJunBiaoMianGanYingJiZhiYanJiuJinZhan2017; @wuRecentAdvancesMicrobial2018; @caiImpactSoilClay2018; @gaoCocultureSoilBiofilm2018; @gaoDivergentInfluencePathogen2019; @yangOxiRSpecificallyResponds2019; @gaoCrosstalkThreeFurA2019; @gaoImpactMetalOxide2019; @caiSoilBiofilmsMicrobial2019; @wuSoilBiofilmFormation2019; @zhangArchaealEukaryotelikeOrc12009; @wangGlobalProteinProtein2010; @linBetterUnderstandingAggregation2018; @wangExtractionExtracellularPolymeric2019]
+2007年9月至2012年6月，本人在“长江学者”何正国教授领衔的课题组中从事病原微生物的研究。硕士阶段，主要参与了结核分枝杆菌的全基因组转录调控网络和全基因组蛋白质相互作用网络的构建；在读博士期间，主要研究结核分枝杆菌重要基因组的转录调控机制，结合使用生物化学、分子生物学和生物信息学的研究方法，先后发现了ArsR、TetR和FurA类型的转录因子，分别对于分枝杆菌的潜伏持续感染、全局调控和抗药性有明显贡献。
+
+期间，还研究了结核分枝杆菌RelBE毒素抗毒素系统系统之间的交叉蛋白质相互作用，以及RelBE3（即RelJK）与SirR转录调控蛋白的相互作用。
+
+2015年至今，在回到华中农业大学之后，与该校生命科学技术学院杨敏副教授合作，继续开展结核分枝杆菌转录调控蛋白与药物小分子相互作用的研究，先后鉴定了InbR、FurA、OxiR等与细菌药物敏感性相关的功能基因。
+
+2016年至今，在华中农业大学资源与环境学院担任师资博士后，在“青年长江学者”蔡鹏教授的指导下，主要采用共培养、（宏）多组学和生物信息学方法研究土壤微生物分离株或模式微生物之间的相互作用，解析其互作的分子和生态学机制。
+
+22.	【申请专利】蔡鹏，高春辉，曹慧，吴一超，黄巧云，李准洁。一种分析土壤生物膜微生物群落演替的方法，申请号：201810444217X。
+23.	【申请专利】蔡鹏，高春辉，曹慧。一株荧光假单胞菌及其应用，申请号：201810757229.8。
+
+同期，还完成了一例金属纳米颗粒影响体外DNA复制的研究，发表研究论文一篇。
+
 
 <br>
 
