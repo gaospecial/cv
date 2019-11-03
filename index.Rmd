@@ -179,6 +179,42 @@ if(PDF_EXPORT){
 ```
 
 
+```{r}
+# import publicatio from biotex
+publications <- bib2df("publications.bib")
+publications$description_1 <- sapply(publications$AUTHOR,function(x){
+  if (any(str_detect(x,"^[A-Z]"))){
+    x <- str_replace_all(x,"Gao, Chun.*ui","**Gao, Chun-Hui**")
+  } else {
+    x <- str_replace_all(x,", ","") %>% str_replace_all("高春辉","__高春辉__")
+  }
+  paste(x,collapse = "; ")
+})
+pub_data <- publications %>% mutate(vol=ifelse(is.na(VOLUME),"",VOLUME),
+                        issue=ifelse(is.na(NUMBER),"",paste("(",NUMBER,")",sep = "")),
+                        pages=ifelse(is.na(PAGES),"",PAGES)) %>%
+  mutate(vi=paste0(vol,issue)) %>%
+  mutate(vip=ifelse(nchar(vi)==0,pages,paste(vi,pages,sep=":"))) %>%
+  mutate(loc = ifelse(nchar(vip)==0, YEAR, paste(YEAR,vip, sep = ", ")),
+         title = gsub("\\{|\\}","",TITLE),
+         description_1=gsub("\\{|\\}","",description_1)) %>%
+  mutate(title=ifelse(is.na(DOI),title,paste("[",title,"]","(http://doi.org/",DOI,")",sep = ""))) %>%
+  mutate(institution="N/A",
+         start=YEAR,
+         end=YEAR,
+         description_2="N/A",
+         description_3="N/A",
+         order="N/A",
+         section="academic_articles",
+         id=1:n()) %>%
+  select(section,id,loc,title,institution,start,end,description_1,description_2,description_3,order) %>%
+  mutate(title=sanitize_links(title)) %>%
+    nest(data=c(-id, -section))
+
+```
+
+
+
 Aside
 ================================================================================
 
