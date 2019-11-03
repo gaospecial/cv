@@ -17,9 +17,16 @@ knitr::opts_chunk$set(
   echo = FALSE
 )
 
+# display Chinese
 Sys.setlocale("LC_ALL","Chinese")
 Sys.setenv(LANG = "zh_CN.UTF-8")
+options(encoding="UTF-8")
 
+library(glue)
+library(tidyverse)
+library(bib2df)
+
+# get pkg's url
 CRANpkg <- function (pkg) {
     cran <- "https://CRAN.R-project.org/package"
     fmt <- "[%s](%s=%s)"
@@ -30,8 +37,6 @@ Biocpkg <- function (pkg) {
     sprintf("[%s](http://bioconductor.org/packages/%s)", pkg, pkg)
 }
 
-library(glue)
-library(tidyverse)
 
 # Set this to true to have links turned into footnotes at the end of the document
 PDF_EXPORT <- FALSE
@@ -39,6 +44,7 @@ PDF_EXPORT <- FALSE
 # Holds all the links that were inserted for placement at the end
 links <- c()
 
+# find markdown links
 find_link <- regex("
   \\[   # Grab opening square bracket
   .+?   # Find smallest internal text as possible
@@ -49,11 +55,13 @@ find_link <- regex("
   ",
   comments = TRUE)
 
+#' transform markdown URL to HTML URL
 sanitize_links <- function(text){
   if(PDF_EXPORT){
     str_extract_all(text, find_link) %>% 
       pluck(1) %>% 
       walk(function(link_from_text){
+        # link title and target
         title <- link_from_text %>% str_extract('\\[.+\\]') %>% str_remove_all('\\[|\\]') 
         link <- link_from_text %>% str_extract('\\(.+\\)') %>% str_remove_all('\\(|\\)')
         
