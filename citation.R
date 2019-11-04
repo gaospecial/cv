@@ -36,7 +36,7 @@ p <- ggplot(citation, aes(cites, year)) +
           plot.caption=element_text(colour='grey30')) +
     theme_transparent() 
 
-ggsave(p, file = "citation.png", width=3.5, height=9, bg = "transparent")
+ggsave(p, file = "citation.png", width=2.5, height=3, bg = "transparent")
 
 
 ## library(magick)
