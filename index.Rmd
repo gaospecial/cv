@@ -192,7 +192,8 @@ pub_data <- publications %>% mutate(vol=ifelse(is.na(VOLUME),"",VOLUME),
                         pages=ifelse(is.na(PAGES),"",PAGES)) %>%
   mutate(vi=paste0(vol,issue)) %>%
   mutate(vip=ifelse(nchar(vi)==0,pages,paste(vi,pages,sep=":"))) %>%
-  mutate(loc = ifelse(nchar(vip)==0, YEAR, paste(YEAR,vip, sep = ", ")),
+  mutate(loc = ifelse(nchar(vip)==0, paste(paste0("__",JOURNAL,"__"),YEAR,sep = ", "), 
+                      paste(paste0("__",JOURNAL,"__"), YEAR,vip, sep = ", ")),
          title = gsub("\\{|\\}","",TITLE),
          description_1=gsub("\\{|\\}","",description_1)) %>%
   mutate(title=ifelse(is.na(DOI),title,paste("[",title,"]","(http://doi.org/",DOI,")",sep = ""))) %>%
