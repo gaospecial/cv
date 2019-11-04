@@ -6,6 +6,7 @@ The main files are:
 
 - `index.Rmd`: Source template for the cv, contains a variable `PDF_EXPORT` in the header that changes styles for pdf vs html. 
 - `index.html`: The final output of the template when the header variable `PDF_EXPORT` is set to `FALSE`. View it at [bio-spring.info/cv](http://bio-spring.info/cv).
+- `publications.bib`: I used `bib2df` to read and append my publications to `position.csv`.
 - `gaoch.pdf`: The final exported pdf. 
 - `positions.csv`: A csv with columns encoding the various fields needed for a position entry in the CV. A column `section` is also available so different sections know which rows to use.
 - `profile.json` and `citation.json`: Citation stats from Google Scholar queried by [scholar](https://cran.r-project.org/package=scholar) package.
@@ -13,7 +14,7 @@ The main files are:
 
 
 
-The source code was derived from <https://github.com/nstrayer/cv>, with modifications:
+The source code was derived from <https://github.com/GuangchuangYu/cv>, with modifications:
 
 + add `order` column in `positions.csv` to adjust item order.
 + remove `time` if it is identical to previous item.
