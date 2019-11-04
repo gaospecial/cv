@@ -302,7 +302,7 @@ Next-Generation Sequqncing (NGS), public databases and so on.
 
 
 
-Research Experience {data-icon=laptop}
+Work Experience {data-icon=laptop}
 --------------------------------------------------------------------------------
 
 ```{r, results='asis', echo = FALSE}
@@ -321,18 +321,140 @@ print_section(position_data, 'education')
 
 
 
-Research Summary {#summary data-icon=laptop}
+
+Research Summary {#summary data-icon=flask}
 --------------------------------------------------------------------------------
 
-2007年9月至2012年6月，本人在“长江学者”何正国教授领衔的课题组中从事病原微生物的研究。硕士阶段，主要参与了结核分枝杆菌的全基因组转录调控网络和全基因组蛋白质相互作用网络的构建；在读博士期间，主要研究结核分枝杆菌重要基因组的转录调控机制，结合使用生物化学、分子生物学和生物信息学的研究方法，先后发现了ArsR、TetR和FurA类型的转录因子，分别对于分枝杆菌的潜伏持续感染、全局调控和抗药性有明显贡献。
+::: aside
 
-期间，还研究了结核分枝杆菌RelBE毒素抗毒素系统系统之间的交叉蛋白质相互作用，以及RelBE3（即RelJK）与SirR转录调控蛋白的相互作用。
+**Professional Competence**
 
-2015年至今，在回到华中农业大学之后，与该校生命科学技术学院杨敏副教授合作，继续开展结核分枝杆菌转录调控蛋白与药物小分子相互作用的研究，先后鉴定了InbR、FurA、OxiR等与细菌药物敏感性相关的功能基因。
+Microbiology
 
-2016年至今，在华中农业大学资源与环境学院担任师资博士后，在“青年长江学者”蔡鹏教授的指导下，主要采用共培养、（宏）多组学和生物信息学方法研究土壤微生物分离株或模式微生物之间的相互作用，解析其互作的分子和生态学机制。
+- Transcriptional regulator
+- Drug resistance
+- Pathogenisis
+- Persistance
 
-同期，还完成了一例金属纳米颗粒影响体外DNA复制的研究，发表研究论文一篇。
+Microbial ecology
+
+- Social interaction
+- Co-culture
+- Multispecies biofilm
+
+NGS
+
+- (meta-)Genomics
+- (meta-)RNA-seq
+- Microbiome
+- ChIP-seq
+
+Bioinformatics
+
+- Linux
+- Perl
+- R
+
+Visualization
+
+- ggplot2
+- ggVennDiagram
+- Reproducible research
+
+Skills
+
+- Write R package
+- Statistics
+- Illustration
+- Bibliometric
+- Data mining
+
+:::
+
+### Whole genome protein-protein and TF-promoter interactome in *M. tuberculosis*
+
+College of Life Science and Technology
+
+Huazhong Agricultural University
+
+2007 - 2009
+
+We used a bacterial two-hybrid method to construct the whole genome protein-protein interaction (PPI) network, and a bacterial one-hybrid method to construct the whole genome transcriptional regulator (TF) - promoter interaction network in *M. tuberculosis*.
+
+### Novel transcriptional regulator in mycobacteria
+
+College of Life Science and Technology
+
+Huazhong Agricultural University
+
+2009 - 2012
+
+- An ArsR-like transcriptional factor recognizes a conserved sequence motif and positively regulates the expression of *phoP* in mycobacteria
+- A TetR-like regulator broadly affects the expressions of diverse genes in *Mycobacterium smegmatis*
+- Characterization of a Novel ArsR-Like Regulator Encoded by Rv2034 in *Mycobacterium tuberculosis*
+
+### The intra-action between three RelBE modules and inter-action between RelBE3/SirR
+
+College of Life Science and Technology
+
+Huazhong Agricultural University
+
+2009 - 2014
+
+- Characterization of the Interaction and Cross-Regulation of Three Mycobacterium tuberculosis RelBE Modules.
+- Characterization of the interaction between a SirR family transcriptional factor of *Mycobacterium tuberculosis*, encoded by Rv2788, and a pair of toxin-antitoxin proteins RelJ/K, encoded by Rv3357 and Rv3358.
+
+### The regulation of secondary metabolite (ε-poly lysine) biosynthesis in *Streptomyces albus* ZPM
+
+School of Life Science
+
+University of Science and Technology of China
+
+2013 - 2014
+
+- Identification of genetic variations associated with epsilon-poly-lysine biosynthesis in *Streptomyces albulus* ZPM by genome sequencing.
+
+
+### The distribution of type III-A CRISPR-Cas system in *Staphylococcus aureus* clinical isolates
+
+School of Life Science
+
+University of Science and Technology of China
+
+2014 - 2015
+
+- Identification and functional study of type III-A CRISPR-Cas systems in clinical isolates of *Staphylococcus aureus*.
+
+
+### The regulatory mechanism of drug susceptibility in mycobacteria
+
+State Key Laboratory of Agricultural Microbiology
+
+Huazhong Agricultural University
+
+2016 - 2019
+
+
+- InbR, a TetR family regulator, binds with isoniazid and influences multidrug resistance in *Mycobacterium bovis* BCG
+- OxiR specifically responds to isoniazid and regulates isoniazid susceptibility in mycobacteria
+- Cross-talk between the three furA orthologs in *Mycobacterium smegmatis* and the contribution to isoniazid resistance
+
+
+### Unearthing the mechanism of soil biofilms
+
+College of Resources and Environment
+
+Huazhong Agricultural University
+
+2016 - 2019
+
+
+- *Bacillus subtilis* biofilm development in the presence of soil clay minerals and iron oxides
+- Co-culture of soil biofilm isolates enables the discovery of novel antibiotics
+- Divergent Influence to a Pathogen Invader by Resident Bacteria with Different Social Interactions
+- Soil biofilms: microbial interactions, challenges, and advanced techniques for *ex-situ* characterization
+- Impact of metal oxide nanoparticles on in vitro DNA amplification
+
 
 
 <br>
@@ -382,67 +504,6 @@ Links {data-icon=link}
 
 <br>
 
-::: aside
-
-Professional Competence {#skills}
---------------------------------------------------------------------------------
-
-Microbiology
-
-- Transcriptional regulator
-- Drug resistance
-- Pathogenisis
-- Persistance
-
-Microbial ecology
-
-- Social interaction
-- Co-culture
-- Multispecies biofilm
-
-Pathogens
-
-- *Mycobacterium tuberculosis*
-- *Vibrio parahaemolyticus*
-- *Staphylococcus aureus*
-
-Commensal
-
-- *Mycobacterium smegmatis*
-- *Staphylococcus epidermidis*
-- *Psuedomonas fluorescens*
-- *Pseudomonas putida*
-- *Bacillus subtilis*
-- *Streptomyces albus*
-
-NGS
-
-- (meta-)Genomics
-- (meta-)RNA-seq
-- Microbiome
-- ChIP-seq
-
-Bioinformatics
-
-- Linux
-- Perl
-- R
-
-Visualization
-
-- ggplot2
-- ggVennDiagram
-- Reproducible research
-
-Skills
-
-- Write R package
-- Statistics
-- Illustration
-- Bibliometric
-- Data mining
-
-:::
 
 
 Publifications {data-icon=book}
