@@ -432,7 +432,7 @@ State Key Laboratory of Agricultural Microbiology
 
 Huazhong Agricultural University
 
-2016 - 2019
+2012 - 2019
 
 
 - InbR, a TetR family regulator, binds with isoniazid and influences multidrug resistance in *Mycobacterium bovis* BCG
