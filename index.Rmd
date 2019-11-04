@@ -475,13 +475,28 @@ print_section(position_data, 'teaching_positions')
 
 
 
-Conference proceedings {data-icon=group}
+Conferences {data-icon=group}
 --------------------------------------------------------------------------------
 
-
+## Oral presentations {data-icon=comment}
 
 ```{r}
 print_section(position_data, 'presentation')
+```
+
+
+## Conference abstract  {data-icon=book-open}
+
+
+```{r}
+print_section(position_data, 'conference_abstract')
+```
+
+## Conference participation {data-icon=id-badge}
+
+
+```{r}
+print_section(position_data, "present")
 ```
 
 
