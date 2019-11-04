@@ -492,9 +492,9 @@ print_section(position_data, 'presentation')
 print_section(position_data, 'conference_abstract')
 ```
 
-
-```{r eval=F}
 ## Conference participation {data-icon=id-badge}
+
+```{r}
 print_section(position_data, "present")
 ```
 
@@ -518,6 +518,14 @@ Links {data-icon=link}
 
 <br>
 
+
+School Honors {data-icon=crown}
+--------------------------------------------------------------------------------
+
+
+```{r}
+print_section(position_data, 'honor')
+```
 
 
 Publifications {data-icon=book}
