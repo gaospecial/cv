@@ -161,7 +161,7 @@ img{
 
 .aside{
   width: calc(var(--sidebar-width) + 9px);
-  padding: 0.6in var(--sidebar-horizontal-padding);
+  /* padding: 0.6in var(--sidebar-horizontal-padding); */
   font-size: 0.75rem;
   float: right;
   position: absolute;
