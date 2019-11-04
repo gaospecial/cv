@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 # display Chinese
 Sys.setlocale("LC_ALL","Chinese")
 Sys.setenv(LANG = "zh_CN.UTF-8")
-options(encoding="UTF-8")
+
 
 library(glue)
 library(tidyverse)
@@ -158,30 +158,13 @@ fill_nas <- function(column){
   ifelse(is.na(column), 'N/A', column)
 }
 
-# Load csv with position info
-position_data <- read_csv('positions.csv',comment = "#") %>% 
-  mutate_all(fill_nas) %>% 
-  arrange(order, desc(end)) %>% 
-  mutate(id = 1:n()) %>% 
-  nest(data = c(-id, -section))
-```
-
-```{r}
-# When in export mode the little dots are unaligned, so fix that. 
-if(PDF_EXPORT){
-  cat("
-  <style>
-  :root{
-    --decorator-outer-offset-left: -6.5px;
-  }
-  </style>")
-}
-```
 
 
-```{r}
+
 # import publicatio from biotex
+options(encoding="UTF-8")
 publications <- bib2df("publications.bib")
+options(encoding="")
 publications$description_1 <- sapply(publications$AUTHOR,function(x){
   if (any(str_detect(x,"^[A-Z]"))){
     x <- str_replace_all(x,"Gao, Chun.*ui","**Gao, Chun-Hui**")
@@ -199,18 +182,38 @@ pub_data <- publications %>% mutate(vol=ifelse(is.na(VOLUME),"",VOLUME),
          title = gsub("\\{|\\}","",TITLE),
          description_1=gsub("\\{|\\}","",description_1)) %>%
   mutate(title=ifelse(is.na(DOI),title,paste("[",title,"]","(http://doi.org/",DOI,")",sep = ""))) %>%
-  mutate(institution="N/A",
+  mutate(institution=as.character(NA),
          start=YEAR,
          end=YEAR,
-         description_2="N/A",
-         description_3="N/A",
-         order="N/A",
+         description_2=as.character(NA),
+         description_3=as.character(NA),
+         order=as.character(NA),
          section="academic_articles",
          id=1:n()) %>%
-  select(section,id,loc,title,institution,start,end,description_1,description_2,description_3,order) %>%
-  mutate(title=sanitize_links(title)) %>%
-    nest(data=c(-id, -section))
+  select(loc,title,institution,start,end,description_1,description_2,description_3,section,order) 
 
+
+
+
+# Load csv with position info
+position_data <- read_csv('positions.csv',comment = "#") 
+position_data <- rbind(position_data,pub_data) %>% 
+  mutate_all(fill_nas) %>% 
+  arrange(order, desc(end)) %>% 
+  mutate(id = 1:n()) %>% 
+  nest(data = c(-id, -section))
+```
+
+```{r}
+# When in export mode the little dots are unaligned, so fix that. 
+if(PDF_EXPORT){
+  cat("
+  <style>
+  :root{
+    --decorator-outer-offset-left: -6.5px;
+  }
+  </style>")
+}
 ```
 
 
@@ -295,9 +298,6 @@ Research Summary {#summary data-icon=laptop}
 2015年至今，在回到华中农业大学之后，与该校生命科学技术学院杨敏副教授合作，继续开展结核分枝杆菌转录调控蛋白与药物小分子相互作用的研究，先后鉴定了InbR、FurA、OxiR等与细菌药物敏感性相关的功能基因。
 
 2016年至今，在华中农业大学资源与环境学院担任师资博士后，在“青年长江学者”蔡鹏教授的指导下，主要采用共培养、（宏）多组学和生物信息学方法研究土壤微生物分离株或模式微生物之间的相互作用，解析其互作的分子和生态学机制。
-
-22.	【申请专利】蔡鹏，高春辉，曹慧，吴一超，黄巧云，李准洁。一种分析土壤生物膜微生物群落演替的方法，申请号：201810444217X。
-23.	【申请专利】蔡鹏，高春辉，曹慧。一株荧光假单胞菌及其应用，申请号：201810757229.8。
 
 同期，还完成了一例金属纳米颗粒影响体外DNA复制的研究，发表研究论文一篇。
 
@@ -411,6 +411,11 @@ Skills
 
 :::
 
+
+Publifications {data-icon=book}
+--------------------------------------------------------------------------------
+
+
 ::: aside
 
 ```{r}
@@ -432,6 +437,7 @@ profile = jsonlite::fromJSON("profile.json")
 :::
 
 
-Publifications {data-icon=book}
---------------------------------------------------------------------------------
 
+```{r}
+print_section(position_data, 'academic_articles')
+```
