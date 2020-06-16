@@ -178,9 +178,8 @@ build_skill_bars <- function(skills, out_of = 5){
 # import publicatio from biotex
 options(encoding="UTF-8")
 publications <- bib2df("publications.bib")
-options(encoding="")
 publications$description_1 <- sapply(publications$AUTHOR,function(x){
-  if (any(str_detect(x,"^[A-Z]"))){
+  if (any(str_detect(x,"^[A-Z]"), na.rm = TRUE)){
     x <- str_replace_all(x,"Gao, Chun.*ui","**Gao, Chun-Hui**")
   } else {
     x <- str_replace_all(x,", ","") %>% str_replace_all("高春辉","__高春辉__")
@@ -211,7 +210,9 @@ pub_data <- publications %>% mutate(vol=ifelse(is.na(VOLUME),"",VOLUME),
 
 
 # Load csv with position info
-position_data <- read_csv('positions.csv',comment = "#") 
+# position_data <- read_csv('positions.csv',comment = "#") 
+position_data <- openxlsx::read.xlsx("positions.xlsx") %>%
+  filter(!stringr::str_detect(loc,"^#"))
 position_data <- rbind(position_data,pub_data) %>% 
   mutate_all(fill_nas) %>% 
   arrange(order, desc(end)) %>% 
