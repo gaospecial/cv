@@ -13,5 +13,7 @@
 # the ?Startup manual has more details.
 CURL_SSL_BACKEND=openssl
 
-http_proxy=http://127.0.0.1:63517
-https_proxy=http://127.0.0.1:63517
+http_proxy=http://127.0.0.1:54507
+
+https_proxy=http://127.0.0.1:54507
+
