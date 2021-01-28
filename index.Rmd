@@ -318,9 +318,10 @@ Education {data-icon=graduation-cap data-concise=true}
 print_section(position_data, 'education')
 ```
 
-<br>
-<br>
-<br>
+
+<div style="page-break-after: always; visibility: hidden"> 
+\pagebreak 
+</div>
 
 
 Research Summary {#summary data-icon=flask}
@@ -447,7 +448,7 @@ College of Resources and Environment
 
 Huazhong Agricultural University
 
-2016 - 2019
+2016 - 2021
 
 
 - *Bacillus subtilis* biofilm development in the presence of soil clay minerals and iron oxides
@@ -470,11 +471,9 @@ Teaching Experience {data-icon=chalkboard-teacher}
 print_section(position_data, 'teaching_positions')
 ```
 
-
-<br>
-
-
-
+<div style="page-break-after: always; visibility: hidden"> 
+\pagebreak 
+</div>
 
 Conferences {data-icon=group}
 --------------------------------------------------------------------------------
@@ -528,6 +527,9 @@ School Honors {data-icon=crown}
 print_section(position_data, 'honor')
 ```
 
+<div style="page-break-after: always; visibility: hidden"> 
+\pagebreak 
+</div>
 
 Publifications {data-icon=book}
 --------------------------------------------------------------------------------
