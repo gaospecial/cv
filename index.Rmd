@@ -175,7 +175,7 @@ build_skill_bars <- function(skills, out_of = 5){
     )
 }
 
-# import publicatio from biotex
+# import publications from biotex
 options(encoding="UTF-8")
 publications <- bib2df("publications.bib")
 publications$description_1 <- sapply(publications$AUTHOR,function(x){
@@ -243,7 +243,7 @@ Aside
 ```{r}
 # When in export mode the little dots are unaligned, so fix that. 
 if(PDF_EXPORT){
-  cat("View this CV online with links at _bio-spring.info/cv_")
+  cat("View this CV online with links at _r.bio-spring.info/cv_")
 }
 ```
 
@@ -255,7 +255,7 @@ Contact {#contact}
 - <i class="fa fa-github"></i> [github.com/gaospecial](http://github.com/gaospecial)
 - <i class="fa fa-weixin"></i> gaospecial
 - <i class="fa fa-twitter"></i> [gaospecial](http://twitter.com/gaospecial)
-- <i class="fa fa-link"></i> [bio-spring.info](http://bio-spring.info)
+- <i class="fa fa-link"></i> [bio-spring.top](http://bio-spring.top)
 - <i class="fa fa-phone"></i> (86) 13147133164
 
 
@@ -278,6 +278,8 @@ build_skill_bars(skills)
 
 Disclaimer {#disclaimer}
 --------------------------------------------------------------------------------
+
+View online version of this CV at [r.bio-spring.info/cv](https://r.bio-spring.info/cv/).
 
 Made with the R package [**pagedown**](https://github.com/rstudio/pagedown). 
 
@@ -318,11 +320,9 @@ Education {data-icon=graduation-cap data-concise=true}
 print_section(position_data, 'education')
 ```
 
-
 <div style="page-break-after: always; visibility: hidden"> 
 \pagebreak 
 </div>
-
 
 Research Summary {#summary data-icon=flask}
 --------------------------------------------------------------------------------
@@ -450,7 +450,7 @@ Huazhong Agricultural University
 
 2016 - 2021
 
-
+- The initial inoculation ratio regulates bacterial coculture interactions and metabolic capacity
 - *Bacillus subtilis* biofilm development in the presence of soil clay minerals and iron oxides
 - Co-culture of soil biofilm isolates enables the discovery of novel antibiotics
 - Divergent Influence to a Pathogen Invader by Resident Bacteria with Different Social Interactions

@@ -13,7 +13,11 @@
 # the ?Startup manual has more details.
 CURL_SSL_BACKEND=openssl
 
-http_proxy=http://127.0.0.1:65036
+# lantern
+# http_proxy=http://127.0.0.1:65036
+# https_proxy=http://127.0.0.1:65036
 
-https_proxy=http://127.0.0.1:65036
+# beam
+http_proxy=http://127.0.0.1:50333
+https_proxy=http://127.0.0.1:50333
 
