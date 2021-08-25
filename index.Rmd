@@ -471,6 +471,14 @@ Huazhong Agricultural University
 <br>
 
 
+Grants {data-icon=chart-line}
+---------------------------------------------------
+
+```{r}
+print_section(position_data, 'grant')
+```
+
+
 
 Teaching Experience {data-icon=chalkboard-teacher}
 --------------------------------------------------------------------------------
@@ -480,9 +488,6 @@ Teaching Experience {data-icon=chalkboard-teacher}
 print_section(position_data, 'teaching_positions')
 ```
 
-<div style="page-break-after: always; visibility: hidden"> 
-\pagebreak 
-</div>
 
 Conferences {data-icon=group}
 --------------------------------------------------------------------------------
