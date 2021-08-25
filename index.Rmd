@@ -175,7 +175,7 @@ build_skill_bars <- function(skills, out_of = 5){
     )
 }
 
-# import publications from biotex
+# import publications from bibtex
 options(encoding="UTF-8")
 publications <- bib2df("publications.bib")
 publications$description_1 <- sapply(publications$AUTHOR,function(x){
@@ -296,7 +296,7 @@ Main
 Chun-Hui Gao (高春辉) {#title}
 --------------------------------------------------------------------------------
 
-Ph. D, Microbiology, bioinformatician, data scientist and R user. 
+Ph. D, Microbiology, bioinformatician, data scientist and useR. 
 
 I am broadly interested in the data mining, particularly integration and visualization, 
 of biological, industrial and social datasets, which comes from high-throughput screening, 
@@ -450,13 +450,23 @@ Huazhong Agricultural University
 
 2016 - 2021
 
-- The initial inoculation ratio regulates bacterial coculture interactions and metabolic capacity
 - *Bacillus subtilis* biofilm development in the presence of soil clay minerals and iron oxides
 - Co-culture of soil biofilm isolates enables the discovery of novel antibiotics
-- Divergent Influence to a Pathogen Invader by Resident Bacteria with Different Social Interactions
+- Survival of *Escherichia coli* O157:H7 in various soil particles: importance of the attached bacterial phenotype
 - Soil biofilms: microbial interactions, challenges, and advanced techniques for *ex-situ* characterization
-- Impact of metal oxide nanoparticles on in vitro DNA amplification
+- Impact of metal oxide nanoparticles on *in vitro* DNA amplification
 
+### Regulation of synthetic bacteria community
+
+College of Resources and Environment
+
+Huazhong Agricultural University
+
+2016 - 2021
+
+- The initial inoculation ratio regulates bacterial coculture interactions and metabolic capacity
+- Emergent transcriptional adaption facilitates convergent succession within a synthetic community
+- Divergent Influence to a Pathogen Invader by Resident Bacteria with Different Social Interactions
 
 
 <br>
