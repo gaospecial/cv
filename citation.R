@@ -5,7 +5,7 @@ library(ggstance)
 library(ggimage)
 library(ggtree)
 
-readRenviron("proxy.Renviron")
+readRenviron(".Renviron")
 
 id <- '9hAQ1LYAAAAJ'
 
