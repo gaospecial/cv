@@ -452,7 +452,6 @@ Huazhong Agricultural University
 
 - *Bacillus subtilis* biofilm development in the presence of soil clay minerals and iron oxides
 - Co-culture of soil biofilm isolates enables the discovery of novel antibiotics
-- Survival of *Escherichia coli* O157:H7 in various soil particles: importance of the attached bacterial phenotype
 - Soil biofilms: microbial interactions, challenges, and advanced techniques for *ex-situ* characterization
 - Impact of metal oxide nanoparticles on *in vitro* DNA amplification
 
