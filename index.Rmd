@@ -538,7 +538,7 @@ Publifications {data-icon=book}
 ::: aside
 
 ```{r}
-profile = jsonlite::fromJSON("profile.json")
+profile = jsonlite::fromJSON(xfun::read_utf8("profile.json"))
 
   glue(
 

@@ -12,13 +12,13 @@ id <- '9hAQ1LYAAAAJ'
 profile <- tryCatch(get_profile(id), error = function(e) stop(paste("Could not get Google scholar profile for id: ",id,e,sep="\t")))
 if (!is.null(profile)) {
     profile$date <- Sys.Date()
-    cat(toJSON(profile), file ="profile.json")
+    xfun::write_utf8(toJSON(profile), "profile.json")
 }
 
 citation <- tryCatch(get_citation_history(id), error = function(e) return(NULL))
 
 if (!is.null(citation)) {
-    cat(toJSON(citation), file = "citation.json")
+    xfun::write_utf8(toJSON(citation), "citation.json")
 }
 
 citation <- fromJSON("citation.json")
