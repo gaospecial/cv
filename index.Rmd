@@ -2,7 +2,6 @@
 title: "Chun-Hui Gao's CV"
 author: Chun-Hui Gao
 date: "`r Sys.Date()`"
-bibliography: [publications.bib]
 biblio-style: apalike
 output:
   pagedown::html_resume:
@@ -177,37 +176,47 @@ build_skill_bars <- function(skills, out_of = 5){
 
 # import publications from bibtex
 options(encoding="UTF-8")
-publications <- bib2df("publications.bib")
-publications$description_1 <- sapply(publications$AUTHOR,function(x){
-  if (any(str_detect(x,"^[A-Z]"), na.rm = TRUE)){
-    x <- str_replace_all(x,"Gao, Chun.*ui","**Gao, Chun-Hui**")
-  } else {
-    x <- str_replace_all(x,", ","") %>% str_replace_all("高春辉","__高春辉__")
+bib = list.files(pattern = "*.bib")
+
+process_bib <- function(file, section_name = xfun::sans_ext(file)){
+  publications <- bib2df(file)
+  publications$description_1 <- sapply(publications$AUTHOR,function(x){
+    if (any(str_detect(x,"^[A-Z]"), na.rm = TRUE)){
+      x <- str_replace_all(x,"Gao, Chun.*ui","**Gao, Chun-Hui**")
+    } else {
+      x <- str_replace_all(x,", ","") %>% str_replace_all("高春辉","__高春辉__")
+    }
+    paste(x,collapse = "; ")
+  })
+  publications = publications %>% mutate(vol=ifelse(is.na(VOLUME),"",VOLUME),
+                          issue=ifelse(is.na(NUMBER),"",paste("(",NUMBER,")",sep = "")),
+                          pages=ifelse(is.na(PAGES),"",PAGES)) %>%
+    mutate(vi=paste0(vol,issue)) %>%
+    mutate(vip=ifelse(nchar(vi)==0,pages,paste(vi,pages,sep=":"))) %>%
+    mutate(loc = ifelse(nchar(vip)==0, paste(paste0("__",JOURNAL,"__"),YEAR,sep = ", "), 
+                        paste(paste0("__",JOURNAL,"__"), YEAR,vip, sep = ", ")),
+           title = gsub("\\{|\\}","",TITLE),
+           description_1=gsub("\\{|\\}","",description_1)) %>%
+    mutate(institution=as.character(NA),
+           start=YEAR,
+           end=YEAR,
+           description_2=as.character(NA),
+           description_3=as.character(NA),
+           order=as.character(NA),
+           section=section_name,
+           id=1:n()) 
+  
+  if ("DOI" %in% colnames(publications)){
+       publications = publications %>%
+         mutate(title=ifelse(is.na(.data$DOI),title,paste("[",title,"]","(http://doi.org/",.data$DOI,")",sep = "")))
   }
-  paste(x,collapse = "; ")
-})
-pub_data <- publications %>% mutate(vol=ifelse(is.na(VOLUME),"",VOLUME),
-                        issue=ifelse(is.na(NUMBER),"",paste("(",NUMBER,")",sep = "")),
-                        pages=ifelse(is.na(PAGES),"",PAGES)) %>%
-  mutate(vi=paste0(vol,issue)) %>%
-  mutate(vip=ifelse(nchar(vi)==0,pages,paste(vi,pages,sep=":"))) %>%
-  mutate(loc = ifelse(nchar(vip)==0, paste(paste0("__",JOURNAL,"__"),YEAR,sep = ", "), 
-                      paste(paste0("__",JOURNAL,"__"), YEAR,vip, sep = ", ")),
-         title = gsub("\\{|\\}","",TITLE),
-         description_1=gsub("\\{|\\}","",description_1)) %>%
-  mutate(title=ifelse(is.na(DOI),title,paste("[",title,"]","(http://doi.org/",DOI,")",sep = ""))) %>%
-  mutate(institution=as.character(NA),
-         start=YEAR,
-         end=YEAR,
-         description_2=as.character(NA),
-         description_3=as.character(NA),
-         order=as.character(NA),
-         section="academic_articles",
-         id=1:n()) %>%
-  select(loc,title,institution,start,end,description_1,description_2,description_3,section,order) 
+  publications %>%
+    select(loc,title,institution,start,end,description_1,description_2,description_3,section,order) 
+}
 
 
-
+pub = lapply(bib, process_bib)
+pub_data = do.call("rbind", pub)
 
 # Load csv with position info
 # position_data <- read_csv('positions.csv',comment = "#") 
@@ -299,8 +308,8 @@ Chun-Hui Gao (高春辉) {#title}
 Ph. D, Microbiology, bioinformatician, data scientist and useR. 
 
 I am broadly interested in the data mining, particularly integration and visualization, 
-of biological, industrial and social datasets, which comes from high-throughput screening, 
-Next-Generation Sequqncing (NGS), public databases and so on.
+of biological, industrial and social data sets, which comes from high-throughput screening, 
+Next-Generation Sequencing (NGS), public databases and so on.
 
 
 
@@ -569,8 +578,26 @@ profile = jsonlite::fromJSON(xfun::read_utf8("profile.json"))
 ![](citation.png)
 :::
 
-
+## Corresponding Author 
 
 ```{r}
-print_section(position_data, 'academic_articles')
+print_section(position_data, 'corresponding-author')
+```
+
+## First (and co-first) Author
+
+```{r}
+print_section(position_data, 'first-author')
+```
+
+## Book Chapter
+
+```{r}
+print_section(position_data, 'book-chapter')
+```
+
+## Contributing Author
+
+```{r}
+print_section(position_data, 'coauthor')
 ```
