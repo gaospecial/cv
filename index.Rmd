@@ -252,7 +252,7 @@ Aside
 ```{r}
 # When in export mode the little dots are unaligned, so fix that. 
 if(PDF_EXPORT){
-  cat("View this CV online with links at _r.bio-spring.info/cv_")
+  cat("View full CV online with links at _r.bio-spring.info/cv_")
 }
 ```
 
@@ -288,7 +288,7 @@ build_skill_bars(skills)
 Disclaimer {#disclaimer}
 --------------------------------------------------------------------------------
 
-View online version of this CV at [r.bio-spring.info/cv](https://r.bio-spring.info/cv/).
+View online of the full version CV at [r.bio-spring.info/cv](https://r.bio-spring.info/cv/).
 
 Made with the R package [**pagedown**](https://github.com/rstudio/pagedown). 
 
@@ -477,9 +477,6 @@ Huazhong Agricultural University
 - Divergent Influence to a Pathogen Invader by Resident Bacteria with Different Social Interactions
 
 
-<br>
-
-
 Grants {data-icon=chart-line}
 ---------------------------------------------------
 
@@ -487,7 +484,57 @@ Grants {data-icon=chart-line}
 print_section(position_data, 'grant')
 ```
 
+<div style="page-break-after: always; visibility: hidden"> 
+\pagebreak 
+</div>
 
+Publications {data-icon=book}
+--------------------------------------------------------------------------------
+
+> |         *Note: Please refer to the online version for all publications.*
+
+::: aside
+
+```{r}
+profile = jsonlite::fromJSON(xfun::read_utf8("profile.json"))
+
+  glue(
+
+"
++ Citation = {profile$total_cites}
++ H-index = {profile$h_index}
++ I10-index = {profile$i10_index}
+
+"
+  ) %>% print()
+
+```
+
+![](citation.png)
+:::
+
+## Corresponding Author 
+
+```{r}
+print_section(position_data, 'corresponding-author')
+```
+
+## First (and co-first) Author
+
+```{r}
+print_section(position_data, 'first-author')
+```
+
+## Book Chapter
+
+```{r}
+print_section(position_data, 'book-chapter')
+```
+
+
+<div style="page-break-after: always; visibility: hidden"> 
+\pagebreak 
+</div>
 
 Teaching Experience {data-icon=chalkboard-teacher}
 --------------------------------------------------------------------------------
@@ -550,53 +597,8 @@ School Honors {data-icon=crown}
 print_section(position_data, 'honor')
 ```
 
-<div style="page-break-after: always; visibility: hidden"> 
-\pagebreak 
-</div>
-
-Publifications {data-icon=book}
+Other Publications {data-icon=book}
 --------------------------------------------------------------------------------
-
-
-::: aside
-
-```{r}
-profile = jsonlite::fromJSON(xfun::read_utf8("profile.json"))
-
-  glue(
-
-"
-+ Citation = {profile$total_cites}
-+ H-index = {profile$h_index}
-+ I10-index = {profile$i10_index}
-
-"
-  ) %>% print()
-
-```
-
-![](citation.png)
-:::
-
-## Corresponding Author 
-
-```{r}
-print_section(position_data, 'corresponding-author')
-```
-
-## First (and co-first) Author
-
-```{r}
-print_section(position_data, 'first-author')
-```
-
-## Book Chapter
-
-```{r}
-print_section(position_data, 'book-chapter')
-```
-
-## Contributing Author
 
 ```{r}
 print_section(position_data, 'coauthor')
