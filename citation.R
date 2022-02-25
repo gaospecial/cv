@@ -13,6 +13,7 @@ devtools::load_all("../myCitation/")
 chromever = "96.0.4664.45"
 geckover = "0.30.0"
 port = 4445L
+killtask_by_port(port)
 driver<- RSelenium::rsDriver(browser = "firefox",
                              port = port,
                              chromever = NULL,
@@ -27,6 +28,8 @@ pageSource = browser$getPageSource()[[1]]
 
 get_profile_pageSource = function (pageSource) 
 {
+  require(rvest)
+  require(stringr)
     if (is.null(pageSource)) 
         return(NA)
     page <- pageSource %>% read_html()
