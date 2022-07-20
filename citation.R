@@ -10,13 +10,13 @@ set_scholar_mirror("https://sc.panda321.com/")
 id <- '9hAQ1LYAAAAJ'
 
 devtools::load_all("../myCitation/")
-chromever = "96.0.4664.45"
+chromever = "103.0.5060.53"
 geckover = "0.30.0"
 port = 4445L
 killtask_by_port(port)
-driver<- RSelenium::rsDriver(browser = "firefox",
+driver<- RSelenium::rsDriver(browser = "chrome",
                              port = port,
-                             chromever = NULL,
+                             chromever = chromever,
                              geckover = geckover,
                              phantomver = NULL)
 browser <- driver[["client"]]
