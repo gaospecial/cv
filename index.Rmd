@@ -175,7 +175,7 @@ build_skill_bars <- function(skills, out_of = 5){
 }
 
 # import publications from bibtex
-options(encoding="UTF-8")
+options(encoding="")
 bib = list.files(pattern = "*.bib")
 
 process_bib <- function(file, section_name = xfun::sans_ext(file)){
@@ -492,9 +492,6 @@ Grants {data-icon=chart-line}
 print_section(position_data, 'grant')
 ```
 
-<div style="page-break-after: always; visibility: hidden"> 
-\pagebreak 
-</div>
 
 Publications {data-icon=book}
 --------------------------------------------------------------------------------
