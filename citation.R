@@ -6,79 +6,84 @@ library(ggimage)
 library(ggtree)
 
 readRenviron(".Renviron")
-set_scholar_mirror("https://sc.panda321.com/")
+# set_scholar_mirror("https://sc.panda321.com/")
 id <- '9hAQ1LYAAAAJ'
 
 devtools::load_all("../myCitation/")
-chromever = "103.0.5060.53"
-geckover = "0.30.0"
-port = 4445L
-killtask_by_port(port)
-driver<- RSelenium::rsDriver(browser = "chrome",
-                             port = port,
-                             chromever = chromever,
-                             geckover = geckover,
-                             phantomver = NULL)
-browser <- driver[["client"]]
-
 url = build_scholar_publication_url(id)
-browser$navigate(url)
 
-pageSource = browser$getPageSource()[[1]]
-
-get_profile_pageSource = function (pageSource) 
-{
-  require(rvest)
-  require(stringr)
-    if (is.null(pageSource)) 
-        return(NA)
-    page <- pageSource %>% read_html()
-    input = page %>% html_elements("input")
-    id = input[[which(html_attr(input, "name") == "user")]] %>% html_attr("value")
-    tables <- page %>% html_table()
-    stats <- tables[[1]]
-    rows <- nrow(stats)
-    name <- page %>% html_nodes(xpath = "//*/div[@id='gsc_prf_in']") %>% 
-        html_text()
-    bio_info <- page %>% html_nodes(xpath = "//*/div[@class='gsc_prf_il']") %>% 
-        html_text()
-    interests <- page %>% html_nodes(xpath = "//*/div[@id='gsc_prf_int']") %>% 
-        html_children() %>% html_text()
-    affiliation <- bio_info[1]
-    specs <- iconv(bio_info[2], from = "UTF8", to = "ASCII")
-    specs <- str_trim(tolower(str_split(specs, ",")[[1]]))
-    homepage <- page %>% html_nodes(xpath = "//*/div[@id='gsc_prf_ivh']//a/@href") %>% 
-        html_text()
-    return(list(id = id, name = name, affiliation = affiliation, 
-                total_cites = as.numeric(as.character(stats[rows - 2, 
-                                                            2])), 
-                h_index = as.numeric(as.character(stats[rows - 1, 2])), 
-                i10_index = as.numeric(as.character(stats[rows, 2])), 
-                fields = specs, 
-                homepage = homepage, 
-                interests = interests
-    ))
+if (FALSE){
+  chromever = "110.0.5481.77"
+  geckover = "0.30.0"
+  port = 4445L
+  killtask_by_port(port)
+  driver<- RSelenium::rsDriver(browser = "chrome",
+                               port = port,
+                               chromever = chromever,
+                               geckover = NULL,
+                               phantomver = NULL)
+  browser <- driver[["client"]]
+  
+  browser$navigate(url)
+  
+  pageSource = browser$getPageSource()[[1]]
 }
 
-profile <- tryCatch(get_profile_pageSource(pageSource), error = function(e) stop(paste("Could not get Google scholar profile for id: ",id,e,sep="\t")))
+
+html = rvest::read_html(url)
+
+process_scholar_page = function(html){
+  require(rvest)
+  require(stringr)
+  input = html %>% html_elements("input")
+  id = input[[which(html_attr(input, "name") == "user")]] %>% html_attr("value")
+  tables <- html %>% html_table()
+  stats <- tables[[1]]
+  rows <- nrow(stats)
+  name <- html %>% html_nodes(xpath = "//*/div[@id='gsc_prf_in']") %>% 
+    html_text()
+  bio_info <- html %>% html_nodes(xpath = "//*/div[@class='gsc_prf_il']") %>% 
+    html_text()
+  interests <- html %>% html_nodes(xpath = "//*/div[@id='gsc_prf_int']") %>% 
+    html_children() %>% html_text()
+  affiliation <- bio_info[1]
+  specs <- iconv(bio_info[2], from = "UTF8", to = "ASCII")
+  specs <- str_trim(tolower(str_split(specs, ",")[[1]]))
+  homepage <- html %>% html_nodes(xpath = "//*/div[@id='gsc_prf_ivh']//a/@href") %>% 
+    html_text()
+  return(list(id = id, name = name, affiliation = affiliation, 
+              total_cites = as.numeric(as.character(stats[rows - 2, 
+                                                          2])), 
+              h_index = as.numeric(as.character(stats[rows - 1, 2])), 
+              i10_index = as.numeric(as.character(stats[rows, 2])), 
+              fields = specs, 
+              homepage = homepage, 
+              interests = interests
+  ))
+}
+
+get_profile_pageSource = function (pageSource){
+  if (is.null(pageSource)) 
+        return(NA)
+    page <- pageSource %>% read_html()
+  return(page)
+}
+
+
+profile = process_scholar_page(html)
 if (!is.null(profile)) {
     profile$date <- Sys.Date()
     xfun::write_utf8(toJSON(profile), "profile.json")
 }
 
   
-get_citation_history_pageSource = function (pageSource) 
-{
-
-    if (is.null(pageSource)) 
-        return(NA)
-    page <- pageSource %>% read_html()
-    years <- page %>% html_nodes(xpath = "//*/span[@class='gsc_g_t']") %>% 
+get_citation_history = function (html){
+    years <- html %>% html_nodes(xpath = "//*/span[@class='gsc_g_t']") %>% 
         html_text() %>% as.numeric()
-    vals <- page %>% html_nodes(xpath = "//*/span[@class='gsc_g_al']") %>% 
+    vals <- html %>% html_nodes(xpath = "//*/span[@class='gsc_g_al']") %>% 
         html_text() %>% as.numeric()
     if (length(years) > length(vals)) {
-        style_tags = page %>% html_nodes(css = ".gsc_g_a") %>% 
+        style_tags = html %>% html_nodes(css = ".gsc_g_a") %>% 
             html_attr("style")
         zindices = as.integer(stringr::str_match(style_tags, 
                                                  "z-index:([0-9]+)")[, 2])
@@ -91,7 +96,7 @@ get_citation_history_pageSource = function (pageSource)
 }
 
 
-citation <- tryCatch(get_citation_history_pageSource(pageSource), error = function(e) return(NULL))
+citation <- get_citation_history(html)
 
 if (!is.null(citation)) {
     xfun::write_utf8(toJSON(citation), "citation.json")
