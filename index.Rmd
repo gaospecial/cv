@@ -193,7 +193,7 @@ process_bib <- function(file, section_name = xfun::sans_ext(file)){
                           pages=ifelse(is.na(PAGES),"",PAGES)) %>%
     mutate(vi=paste0(vol,issue)) %>%
     mutate(vip=ifelse(nchar(vi)==0,pages,paste(vi,pages,sep=":"))) %>%
-    mutate(loc = ifelse(nchar(vip)==0, paste(paste0("__",JOURNAL,"__"),YEAR,sep = ", "), 
+    mutate(loc = ifelse(!is.na(BOOKTITLE), paste(paste0("__",BOOKTITLE,"__"),YEAR,sep = ", "), 
                         paste(paste0("__",JOURNAL,"__"), YEAR,vip, sep = ", ")),
            title = gsub("\\{|\\}","",TITLE),
            description_1=gsub("\\{|\\}","",description_1)) %>%
@@ -390,7 +390,7 @@ College of Resources and Environment
 
 Huazhong Agricultural University
 
-2016 - 2021
+current - 2016
 
 - The initial inoculation ratio regulates bacterial coculture interactions and metabolic capacity
 - Emergent transcriptional adaption facilitates convergent succession within a synthetic community
@@ -402,7 +402,7 @@ College of Resources and Environment
 
 Huazhong Agricultural University
 
-2016 - 2021
+2021 - 2016
 
 - *Bacillus subtilis* biofilm development in the presence of soil clay minerals and iron oxides
 - Co-culture of soil biofilm isolates enables the discovery of novel antibiotics
@@ -415,7 +415,7 @@ State Key Laboratory of Agricultural Microbiology
 
 Huazhong Agricultural University
 
-2012 - 2019
+2019 - 2012
 
 
 - InbR, a TetR family regulator, binds with isoniazid and influences multidrug resistance in *Mycobacterium bovis* BCG
@@ -431,7 +431,7 @@ School of Life Science
 
 University of Science and Technology of China
 
-2014 - 2015
+2015 - 2014
 
 - Identification and functional study of type III-A CRISPR-Cas systems in clinical isolates of *Staphylococcus aureus*.
 
@@ -443,7 +443,7 @@ School of Life Science
 
 University of Science and Technology of China
 
-2013 - 2014
+2014 - 2013
 
 - Identification of genetic variations associated with epsilon-poly-lysine biosynthesis in *Streptomyces albulus* ZPM by genome sequencing.
 
@@ -455,7 +455,7 @@ College of Life Science and Technology
 
 Huazhong Agricultural University
 
-2009 - 2014
+2014 - 2009
 
 - Characterization of the Interaction and Cross-Regulation of Three Mycobacterium tuberculosis RelBE Modules.
 - Characterization of the interaction between a SirR family transcriptional factor of *Mycobacterium tuberculosis*, encoded by Rv2788, and a pair of toxin-antitoxin proteins RelJ/K, encoded by Rv3357 and Rv3358.
@@ -467,7 +467,7 @@ College of Life Science and Technology
 
 Huazhong Agricultural University
 
-2009 - 2012
+2012 - 2009
 
 - An ArsR-like transcriptional factor recognizes a conserved sequence motif and positively regulates the expression of *phoP* in mycobacteria
 - A TetR-like regulator broadly affects the expressions of diverse genes in *Mycobacterium smegmatis*
@@ -480,7 +480,7 @@ College of Life Science and Technology
 
 Huazhong Agricultural University
 
-2007 - 2009
+2009 - 2007
 
 We used a bacterial two-hybrid method to construct the whole genome protein-protein interaction (PPI) network, and a bacterial one-hybrid method to construct the whole genome transcriptional regulator (TF) - promoter interaction network in *M. tuberculosis*.
 
@@ -493,7 +493,7 @@ print_section(position_data, 'grant')
 ```
 
 
-Publications {data-icon=book}
+Selected Publications {data-icon=book}
 --------------------------------------------------------------------------------
 
 > |         *Note: Please refer to the online version for all publications.*
@@ -518,22 +518,9 @@ profile = jsonlite::fromJSON(xfun::read_utf8("profile.json"))
 ![](citation.png)
 :::
 
-## Corresponding Author 
 
 ```{r}
-print_section(position_data, 'corresponding-author')
-```
-
-## First (and co-first) Author
-
-```{r}
-print_section(position_data, 'first-author')
-```
-
-## Book Chapter
-
-```{r}
-print_section(position_data, 'book-chapter')
+print_section(position_data, 'selected')
 ```
 
 
@@ -602,9 +589,9 @@ School Honors {data-icon=crown}
 print_section(position_data, 'honor')
 ```
 
-Other Publications {data-icon=book}
+All Publications {data-icon=book}
 --------------------------------------------------------------------------------
 
 ```{r}
-print_section(position_data, 'coauthor')
+print_section(position_data, 'all')
 ```
